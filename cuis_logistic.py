@@ -2,11 +2,7 @@ import cuis_preprocess
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV,cross_validate
 
-def dictMean(dictionary):
-    average = {}
-    for k, v in dictionary.iteritems():
-        average[k] = sum(v)/float(len(v))
-    return average
+
 
 
 if __name__ == "__main__":
@@ -27,5 +23,5 @@ if __name__ == "__main__":
                            scoring=["roc_auc", "precision","recall", "f1_micro", "f1_macro", "f1_weighted", "accuracy"],
                            cv=10,
                            return_train_score=False)
-    ave_score = dictMean(score)
+    ave_score = cuis_preprocess.dictMean(score)
     print(ave_score)

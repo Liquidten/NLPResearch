@@ -47,4 +47,11 @@ tfidf = TfidfVectorizer(analyzer='word',
 tfidf.fit(raw_documents=X_train)
 X_train_matrix = tfidf.transform(raw_documents=X_train)
 
+# calculate average
 
+
+def dictMean(dictionary):
+    average = {}
+    for k, v in dictionary.iteritems():
+        average[k] = sum(v)/float(len(v))
+    return average
