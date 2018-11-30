@@ -28,13 +28,11 @@ from keras.callbacks import TensorBoard
 import matplotlib.pyplot as plt
 from sklearn import metrics
 
+positive_Test = glob.glob("/home/sshah33/Opioid_Data/Test/Yes/*.txt")
+negative_Test = glob.glob("/home/sshah33/Opioid_Data/Test/No/*.txt")
+positive_Train = glob.glob("/home/sshah33/Opioid_Data/Train/Yes/*.txt")
+negative_Train = glob.glob("/home/sshah33/Opioid_Data/Train/No/*.txt")
 
-
-
-positive_Test = glob.glob("/Users/sameepshah/Desktop/Data/Opioid_Data/Data/Test/Yes/*.txt")
-negative_Test = glob.glob("/Users/sameepshah/Desktop/Data/Opioid_Data/Data/Test/No/*.txt")
-positive_Train = glob.glob("/Users/sameepshah/Desktop/Data/Opioid_Data/Data/Train/Yes/*.txt")
-negative_Train = glob.glob("/Users/sameepshah/Desktop/Data/Opioid_Data/Data/Train/No/*.txt")
 
 def read_files_in_one_dataframe_column(file_name_list):
 	result_df_list = []
