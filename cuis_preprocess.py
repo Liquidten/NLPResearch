@@ -3,6 +3,16 @@ import panadas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 
+# untility
+
+
+def dictMean(dictionary):
+    average = {}
+    for k, v in dictionary.iteritems():
+        average[k] = sum(v)/float(len(v))
+    return average
+
+
 # read positive
 positive_dic = "/home/xsu1/lab/Opioid/CUIS/yes/*.txt"
 positive_files = glob.glob(positive_dic)
@@ -31,7 +41,6 @@ negative_df["label"] = -1
 examples = pd.concat(objs=[positive_df, negative_df],
                      axis=0)
 
-
 # train test split
 X_train, X_test, y_train, y_test = train_test_split(examples["notes"].values,
                                                     examples["label"].values,
@@ -47,11 +56,6 @@ tfidf = TfidfVectorizer(analyzer='word',
 tfidf.fit(raw_documents=X_train)
 X_train_matrix = tfidf.transform(raw_documents=X_train)
 
-# calculate average
 
 
-def dictMean(dictionary):
-    average = {}
-    for k, v in dictionary.iteritems():
-        average[k] = sum(v)/float(len(v))
-    return average
+

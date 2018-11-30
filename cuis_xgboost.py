@@ -2,7 +2,6 @@ from sklearn.model_selection import GridSearchCV, cross_validate
 from xgboost import XGBClassifier
 import cuis_preprocess
 
-
 if __name__ == "__main__":
     xgboost = XGBClassifier(objective="binary:logistic", random_state=2018)
     search_space = {"max_depth": [7, 8, 9, 10],
